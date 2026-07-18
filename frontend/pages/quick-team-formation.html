@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Team Formation | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="border-b border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 font-bold text-white">CC</div>
+        <div>
+          <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+          <p class="text-xs text-slate-500">Quick Team Formation</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="dashboard.html" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Dashboard</a>
+        <a href="sports.html" class="rounded-xl border border-brand-200 px-4 py-2 text-sm font-semibold text-brand-700 hover:bg-brand-50">Back to Sports</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-6 py-10">
+    <div class="rounded-3xl bg-white p-8 shadow-soft">
+      <h2 class="text-3xl font-bold text-slate-900">Quick Team Formation</h2>
+      <p class="mt-2 text-slate-500">Need players right now? Post a live sports call and other students can message you immediately without admin approval.</p>
+    </div>
+
+    <div class="mt-8 grid gap-8 xl:grid-cols-[420px_1fr]">
+      <section class="rounded-3xl bg-white p-8 shadow-soft">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h3 class="text-2xl font-bold text-slate-900">Post Quick Team</h3>
+            <p class="mt-2 text-sm text-slate-500">Share the sport, time, location, and how many players you need.</p>
+          </div>
+          <span class="rounded-full bg-emerald-50 px-4 py-2 text-xs font-semibold text-emerald-700">Live Instantly</span>
+        </div>
+
+        <form id="quickSportForm" class="mt-8 grid gap-4">
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">Sport Name</label>
+            <input type="text" name="sportName" required placeholder="Ex: Football" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500" />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">Play Date And Time</label>
+            <input type="datetime-local" name="playAt" required class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500" />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">Location</label>
+            <input type="text" name="location" required placeholder="Ex: Main Ground" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500" />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">Players Needed</label>
+            <input type="number" name="playersNeeded" min="1" max="99" required placeholder="Ex: 4" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500" />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">Description</label>
+            <textarea name="description" rows="5" placeholder="Share the match plan, skill level, or what kind of players you need." class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500"></textarea>
+          </div>
+          <button type="submit" class="rounded-2xl bg-brand-600 px-5 py-3 font-semibold text-white shadow-soft hover:bg-brand-700">
+            Post Quick Team
+          </button>
+        </form>
+      </section>
+
+      <section class="rounded-3xl bg-white p-8 shadow-soft">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h3 class="text-2xl font-bold text-slate-900">Quick Teams Live Now</h3>
+            <p class="mt-2 text-sm text-slate-500">These student posts appear immediately so others can join the game or message the organizer.</p>
+          </div>
+          <span class="rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">Student Posts</span>
+        </div>
+        <div id="quickSportList" class="mt-6 grid gap-5 md:grid-cols-2"></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

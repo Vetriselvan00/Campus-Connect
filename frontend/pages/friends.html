@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friends | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#eef2ff",
+              100: "#e0e7ff",
+              500: "#6366f1",
+              600: "#4f46e5",
+              700: "#4338ca"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <div class="min-h-screen">
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div class="flex items-center gap-3">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 font-bold text-white">CC</div>
+          <div>
+            <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+            <p class="text-xs text-slate-500">Friends</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="profile.html" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Back to Profile</a>
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-200 bg-brand-50 text-xl text-brand-700">👥</span>
+          <a href="requests.html" title="Incoming Requests" aria-label="Incoming Requests" class="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 text-xl text-slate-700 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700">👋</a>
+          <button id="dmAdminButton" type="button" title="DM to Admin" aria-label="DM to Admin" class="flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-200 text-xl text-brand-700 hover:bg-brand-50">🛡️</button>
+          <button id="logoutButton" type="button" class="rounded-xl border border-red-200 px-4 py-2 text-sm font-semibold text-red-600 hover:bg-red-50">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-6 py-10">
+      <section class="rounded-3xl bg-white p-8 shadow-soft">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-3xl font-bold text-slate-900">Friends</h2>
+            <p class="mt-2 text-slate-500">Your accepted friends can message you privately and receive shared notes directly.</p>
+          </div>
+          <span id="friendsListCount" class="rounded-full bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700">0 connected</span>
+        </div>
+        <div id="friendsList" class="mt-8 space-y-4">
+          <div class="rounded-2xl bg-slate-50 p-4 text-sm text-slate-500">Your accepted friends will appear here.</div>
+        </div>
+      </section>
+
+      <div id="friendProfileModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/40 px-6 py-10">
+        <div class="w-full max-w-3xl rounded-3xl bg-white p-8 shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-500">Friend Profile</p>
+              <h3 id="friendProfileName" class="mt-3 text-3xl font-bold text-slate-900">Student Name</h3>
+              <p id="friendProfileEmail" class="mt-2 text-sm text-slate-500">student@student.annauniv.edu</p>
+            </div>
+            <button id="friendProfileClose" type="button" class="rounded-2xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Close</button>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="text-xs uppercase tracking-wide text-slate-400">Register Number</p>
+              <p id="friendProfileRegisterNumber" class="mt-2 font-semibold text-slate-900">Not added</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="text-xs uppercase tracking-wide text-slate-400">Department</p>
+              <p id="friendProfileDepartment" class="mt-2 font-semibold text-slate-900">Not added</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="text-xs uppercase tracking-wide text-slate-400">Academic Year</p>
+              <p id="friendProfileYear" class="mt-2 font-semibold text-slate-900">Not added</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="text-xs uppercase tracking-wide text-slate-400">Phone Number</p>
+              <p id="friendProfilePhone" class="mt-2 font-semibold text-slate-900">Not added</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4 md:col-span-2">
+              <p class="text-xs uppercase tracking-wide text-slate-400">Member Tag</p>
+              <p id="friendProfileMemberTag" class="mt-2 font-semibold text-slate-900">Campus Member</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4 md:col-span-2">
+              <p class="text-xs uppercase tracking-wide text-slate-400">About</p>
+              <p id="friendProfileAbout" class="mt-2 leading-7 text-slate-700">No description added.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

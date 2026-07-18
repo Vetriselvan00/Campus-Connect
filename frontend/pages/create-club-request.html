@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register New Club | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#eef2ff",
+              100: "#e0e7ff",
+              500: "#6366f1",
+              600: "#4f46e5",
+              700: "#4338ca"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="border-b border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 font-bold text-white">CC</div>
+        <div>
+          <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+          <p class="text-xs text-slate-500">Club Registration Request</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="clubs.html" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Back to Clubs</a>
+        <a href="dashboard.html" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Dashboard</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-6 py-10">
+    <section class="rounded-[2rem] bg-white p-8 shadow-soft">
+      <div>
+          <p class="campus-glow-text text-sm text-brand-600">Student Club Proposal</p>
+          <h2 class="mt-3 text-4xl font-bold text-slate-900">Register A New Club</h2>
+          <p class="mt-3 max-w-2xl text-slate-500">Submit the club information here. The full request goes directly to admin, and only admin can create the official club after checking your valid proof.</p>
+
+          <form id="clubRequestForm" class="mt-8 grid gap-5">
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700">Club Name</label>
+              <input name="clubName" type="text" placeholder="Example: Innovation Club" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500" />
+            </div>
+
+            <div class="grid gap-5 md:grid-cols-2">
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Club Head Name</label>
+                <input name="clubHead" type="text" placeholder="Your full name" readonly class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-500 outline-none focus:border-brand-500" />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Register Number</label>
+                <input name="registerNumber" type="text" placeholder="Your register number" readonly class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-500 outline-none focus:border-brand-500" />
+              </div>
+            </div>
+
+            <div class="grid gap-5 md:grid-cols-2">
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Department</label>
+                <input name="department" type="text" placeholder="Department" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500" />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Phone Number</label>
+                <input name="phone" type="text" placeholder="Contact number" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500" />
+              </div>
+            </div>
+
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700">College Email</label>
+              <input name="collegeEmail" type="email" placeholder="Your college email" readonly class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-500 outline-none focus:border-brand-500" />
+            </div>
+
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700">Club Purpose And Activities</label>
+              <textarea name="description" rows="5" placeholder="Explain what the club does, why it is needed, and what activities it will conduct." class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500"></textarea>
+            </div>
+
+            <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Passport Size Photo</label>
+                <input name="passportPhoto" type="file" accept="image/*" required class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none file:mr-4 file:rounded-xl file:border-0 file:bg-brand-50 file:px-4 file:py-2 file:font-semibold file:text-brand-700 hover:file:bg-brand-100 focus:border-brand-500" />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">College Identity Card</label>
+                <input name="collegeIdCard" type="file" accept="image/*,.pdf" required class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none file:mr-4 file:rounded-xl file:border-0 file:bg-brand-50 file:px-4 file:py-2 file:font-semibold file:text-brand-700 hover:file:bg-brand-100 focus:border-brand-500" />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Club Logo</label>
+                <input name="clubLogo" type="file" accept="image/*" required class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none file:mr-4 file:rounded-xl file:border-0 file:bg-brand-50 file:px-4 file:py-2 file:font-semibold file:text-brand-700 hover:file:bg-brand-100 focus:border-brand-500" />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Proof You Are The Club Head</label>
+                <input name="clubHeadProof" type="file" accept="image/*,.pdf" required class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none file:mr-4 file:rounded-xl file:border-0 file:bg-brand-50 file:px-4 file:py-2 file:font-semibold file:text-brand-700 hover:file:bg-brand-100 focus:border-brand-500" />
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <button type="submit" class="rounded-2xl bg-brand-600 px-5 py-3 font-semibold text-white shadow-soft hover:bg-brand-700">Send To Admin</button>
+            </div>
+          </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

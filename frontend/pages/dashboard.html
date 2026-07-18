@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#eef2ff",
+              100: "#e0e7ff",
+              500: "#6366f1",
+              600: "#4f46e5",
+              700: "#4338ca",
+              900: "#1e1b4b"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <div class="min-h-screen lg:flex">
+    <aside class="w-full border-b border-slate-200 bg-white lg:min-h-screen lg:w-72 lg:border-b-0 lg:border-r">
+      <div class="p-6">
+        <div class="flex items-center gap-3">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 text-lg font-bold text-white">CC</div>
+          <div>
+            <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+            <p class="text-xs text-slate-500">Student Dashboard</p>
+          </div>
+        </div>
+
+        <nav class="mt-8 space-y-2">
+          <a href="dashboard.html" class="block rounded-2xl bg-brand-50 px-4 py-3 font-semibold text-brand-700">Dashboard</a>
+          <a href="notes.html" data-notify-key="notes" class="block rounded-2xl px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-brand-600">Notes</a>
+          <a href="items.html" data-notify-key="items" class="block rounded-2xl px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-brand-600">Items</a>
+          <a href="announcements.html" data-notify-key="announcements" class="block rounded-2xl px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-brand-600">Announcements</a>
+          <a href="project-ideas.html" class="block rounded-2xl px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-brand-600">Project Ideas</a>
+          <a href="clubs.html" data-notify-key="clubs" class="block rounded-2xl px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-brand-600">Clubs</a>
+          <a href="sports.html" data-notify-key="sports" class="block rounded-2xl px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-brand-600">Sports</a>
+          <a href="quick-team-formation.html" class="block rounded-2xl px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-brand-600">Quick Team Formation</a>
+          <a href="profile.html" data-notify-key="friendRequests" class="block rounded-2xl px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-brand-600">Profile</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="flex-1 p-6 lg:p-8">
+      <header class="dashboard-page-header rounded-3xl border border-slate-200 bg-white px-6 py-4 shadow-soft">
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div class="flex items-center gap-3">
+            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 font-bold text-white">CC</div>
+            <div>
+              <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+              <p class="text-xs text-slate-500">Student Dashboard</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="chat.html?thread=chat-global" data-notify-key="globalChat" class="relative campus-glow-button rounded-2xl px-5 py-3 text-sm font-semibold text-white">
+              Global Chat
+            </a>
+            <button id="dashboardFriendSearchToggle" type="button" title="Search Friends" aria-label="Search Friends" class="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-xl text-slate-700 shadow-soft hover:border-brand-200 hover:text-brand-700">
+              &#128269;
+            </button>
+            <a id="dashboardDmShortcut" data-notify-key="directMessages" href="chat.html?mode=direct" title="Direct Messages" aria-label="Direct Messages" class="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-xl font-bold text-brand-700 shadow-soft hover:border-brand-200 hover:text-brand-700">
+              ⌯⌲
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <div class="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h2 class="text-3xl font-bold text-slate-900">Dashboard Overview</h2>
+          <p class="mt-1 text-slate-500">Manage all your campus activities from one place.</p>
+        </div>
+      </div>
+
+      <section class="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div class="rounded-3xl bg-white p-6 shadow-soft">
+          <div class="mb-5 h-1.5 w-16 rounded-full bg-brand-600"></div>
+          <p class="text-sm text-slate-500">Academic Resources</p>
+          <h3 class="mt-3 text-3xl font-bold text-slate-900">Notes</h3>
+          <p class="mt-2 text-sm text-slate-500">Access and manage learning materials.</p>
+        </div>
+
+        <div class="rounded-3xl bg-white p-6 shadow-soft">
+          <div class="mb-5 h-1.5 w-16 rounded-full bg-emerald-500"></div>
+          <p class="text-sm text-slate-500">Campus Sharing</p>
+          <h3 class="mt-3 text-3xl font-bold text-slate-900">Items</h3>
+          <p class="mt-2 text-sm text-slate-500">View available student resources.</p>
+        </div>
+
+        <div class="rounded-3xl bg-white p-6 shadow-soft">
+          <div class="mb-5 h-1.5 w-16 rounded-full bg-sky-500"></div>
+          <p class="text-sm text-slate-500">Innovation Hub</p>
+          <h3 class="mt-3 text-3xl font-bold text-slate-900">Projects</h3>
+          <p class="mt-2 text-sm text-slate-500">Student project ideas and collaboration posts.</p>
+        </div>
+
+        <div class="rounded-3xl bg-white p-6 shadow-soft">
+          <div class="mb-5 h-1.5 w-16 rounded-full bg-violet-500"></div>
+          <p class="text-sm text-slate-500">Sports Network</p>
+          <h3 class="mt-3 text-3xl font-bold text-slate-900">Teams</h3>
+          <p class="mt-2 text-sm text-slate-500">Clubs, matches, and achievements.</p>
+        </div>
+      </section>
+
+      <section id="dashboardFriendSearchPanel" class="mt-8 hidden rounded-3xl bg-white p-6 shadow-soft">
+        <div class="flex flex-col gap-3 md:flex-row">
+          <input id="dashboardFriendSearchInput" type="text" placeholder="Search friend by name or register number" class="flex-1 rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500" />
+          <button id="dashboardFriendSearchButton" type="button" title="Search" aria-label="Search" class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-600 text-xl text-white hover:bg-brand-700">
+            &#128269;
+          </button>
+        </div>
+
+        <div id="dashboardFriendSearchResults" class="mt-6 space-y-4">
+          <div class="rounded-2xl bg-slate-50 p-4 text-sm text-slate-500">Search for an accepted friend to open direct messages.</div>
+        </div>
+      </section>
+
+      <section class="mt-8 grid gap-6 xl:grid-cols-3">
+        <div class="rounded-3xl bg-white p-6 shadow-soft xl:col-span-2">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-bold text-slate-900">Quick Access</h3>
+            <a href="#" class="text-sm font-semibold text-brand-600 hover:text-brand-700">View all</a>
+          </div>
+
+          <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <a href="notes.html" class="rounded-2xl bg-slate-50 p-5 transition hover:bg-brand-50">
+              <h4 class="font-semibold text-slate-900">Academic Notes</h4>
+              <p class="mt-2 text-sm text-slate-500">Browse notes, links, and exam prep material.</p>
+            </a>
+
+            <a href="doubts.html" class="rounded-2xl bg-slate-50 p-5 transition hover:bg-brand-50">
+              <h4 class="font-semibold text-slate-900">Doubt Forum</h4>
+              <p class="mt-2 text-sm text-slate-500">Post questions and interact with peers.</p>
+            </a>
+
+            <a href="chat.html?mode=direct" class="rounded-2xl bg-slate-50 p-5 transition hover:bg-brand-50">
+              <h4 class="font-semibold text-slate-900">Direct Messages</h4>
+              <p class="mt-2 text-sm text-slate-500">Open friend chats, admin support, and shared notes.</p>
+            </a>
+
+            <a href="announcements.html" class="rounded-2xl bg-slate-50 p-5 transition hover:bg-brand-50">
+              <h4 class="font-semibold text-slate-900">Announcements</h4>
+              <p class="mt-2 text-sm text-slate-500">Check workshops, symposiums, and notices.</p>
+            </a>
+
+            <a href="project-ideas.html" class="rounded-2xl bg-slate-50 p-5 transition hover:bg-brand-50">
+              <h4 class="font-semibold text-slate-900">Project Ideas</h4>
+              <p class="mt-2 text-sm text-slate-500">Post your project concept, collect student suggestions, and connect through DM.</p>
+            </a>
+
+            <a href="chat.html?thread=chat-global" class="rounded-2xl bg-slate-50 p-5 transition hover:bg-brand-50">
+              <h4 class="campus-glow-text text-slate-900">Global Chat</h4>
+              <p class="mt-2 text-sm text-slate-500">Join the campus-wide conversation with one tap.</p>
+            </a>
+
+            <a href="clubs.html" class="rounded-2xl bg-slate-50 p-5 transition hover:bg-brand-50">
+              <h4 class="font-semibold text-slate-900">Campus Clubs</h4>
+              <p class="mt-2 text-sm text-slate-500">Request and manage student-led clubs through admin approval.</p>
+            </a>
+
+            <a href="sports.html" class="rounded-2xl bg-slate-50 p-5 transition hover:bg-brand-50">
+              <h4 class="font-semibold text-slate-900">Sports Teams</h4>
+              <p class="mt-2 text-sm text-slate-500">Explore sports teams, fixtures, players, and achievements.</p>
+            </a>
+
+            <a href="quick-team-formation.html" class="rounded-2xl bg-slate-50 p-5 transition hover:bg-brand-50">
+              <h4 class="font-semibold text-slate-900">Quick Team Formation</h4>
+              <p class="mt-2 text-sm text-slate-500">Post an instant sports call, find players fast, and start a live team without admin approval.</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-3xl bg-white p-6 shadow-soft">
+          <h3 class="text-xl font-bold text-slate-900">Recent Activity</h3>
+          <div class="mt-5 space-y-4">
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="font-medium text-slate-800">New academic content uploaded</p>
+              <p class="mt-1 text-sm text-slate-500">Fresh learning material is now available.</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="font-medium text-slate-800">New student item listed</p>
+              <p class="mt-1 text-sm text-slate-500">Browse the latest shared campus resources.</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="font-medium text-slate-800">Sports update added</p>
+              <p class="mt-1 text-sm text-slate-500">Check current matches and club activity.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#eef2ff",
+              100: "#e0e7ff",
+              500: "#6366f1",
+              600: "#4f46e5",
+              700: "#4338ca"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800">
+  <div class="grid min-h-screen lg:grid-cols-2">
+    <div class="hidden bg-gradient-to-br from-brand-600 via-brand-500 to-cyan-500 lg:flex lg:min-h-screen lg:flex-col lg:justify-between">
+      <div class="flex h-full flex-col justify-between p-12 text-white">
+        <div>
+          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 text-lg font-bold backdrop-blur">
+            CC
+          </div>
+          <h1 class="mt-8 max-w-lg text-4xl font-extrabold leading-tight">
+            Welcome back to Campus Connect
+          </h1>
+          <p class="mt-4 max-w-md text-white/85">
+            Access your academic dashboard, student resources, campus opportunities, and sports activity from one place.
+          </p>
+        </div>
+        <p class="text-sm text-white/80">Student-first platform for seamless campus collaboration.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-center px-6 py-10">
+      <div class="w-full max-w-md rounded-3xl bg-white p-8 shadow-soft">
+        <div class="mb-8 text-center">
+          <h2 class="text-3xl font-bold text-slate-900">Sign In</h2>
+          <p class="mt-2 text-slate-500">Login using your college credentials</p>
+        </div>
+
+        <form id="loginForm" class="space-y-5">
+          <div>
+  <label class="mb-2 block text-sm font-medium text-slate-700">College Email</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="Enter your college email"
+    pattern="^[0-9]{10}@student\.annauniv\.edu$"
+    title="Enter a valid college email in the format 10digits@student.annauniv.edu"
+    required
+    autocomplete="username"
+    class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500"
+  />
+</div>
+
+          <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700">Password</label>
+            <input
+    type="password"
+    id="password"
+    name="password"
+    autocomplete="current-password"
+    class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500"
+  />
+</div>
+
+          <div class="flex items-center justify-between text-sm">
+            <label class="flex items-center gap-2 text-slate-600">
+              <input type="checkbox" class="rounded border-slate-300" />
+              Remember me
+            </label>
+          </div>
+
+          <button type="submit" class="w-full rounded-2xl bg-brand-600 px-5 py-3 font-semibold text-white shadow-soft hover:bg-brand-700">
+            Login
+          </button>
+        </form>
+
+        <p class="mt-6 text-center text-sm text-slate-500">
+          Don't have an account?
+          <a href="register.html" class="font-semibold text-brand-600 hover:text-brand-700">Register</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

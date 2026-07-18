@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Items | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#eef2ff",
+              100: "#e0e7ff",
+              500: "#6366f1",
+              600: "#4f46e5",
+              700: "#4338ca"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="border-b border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 font-bold text-white">CC</div>
+        <div>
+          <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+          <p class="text-xs text-slate-500">Item Sharing</p>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <a href="dashboard.html" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Dashboard</a>
+        <a href="create-item.html" class="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">Create Listing</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-6 py-10">
+    <div>
+      <h2 class="text-3xl font-bold text-slate-900">Student Item Sharing</h2>
+      <p class="mt-1 text-slate-500">Browse approved listings and live emergency needs posted by students, then message the student directly.</p>
+    </div>
+
+    <section class="mt-8 rounded-3xl bg-white p-6 shadow-soft">
+      <p class="text-sm font-semibold text-slate-700">Loading item listings and emergency needs...</p>
+      <p class="mt-2 text-sm text-slate-500">Admin-approved listings and emergency student needs are visible here.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clubs | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#eef2ff",
+              100: "#e0e7ff",
+              500: "#6366f1",
+              600: "#4f46e5",
+              700: "#4338ca"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="border-b border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 font-bold text-white">CC</div>
+        <div>
+          <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+          <p class="text-xs text-slate-500">Sports Clubs</p>
+        </div>
+      </div>
+      <a href="teams.html" class="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">View Teams</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-6 py-10">
+    <div>
+      <h2 class="text-3xl font-bold text-slate-900">Explore Clubs</h2>
+      <p class="mt-1 text-slate-500">Find active sports clubs, student groups, and campus teams.</p>
+    </div>
+
+    <section class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div class="rounded-3xl bg-white p-6 shadow-soft">
+        <div class="h-44 rounded-2xl bg-slate-100"></div>
+        <h3 class="mt-5 text-xl font-bold text-slate-900">Club Name</h3>
+        <p class="mt-3 text-slate-600">A modern card design for sports clubs with room for description and recruitment status.</p>
+        <button class="mt-5 rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">Explore</button>
+      </div>
+
+      <div class="rounded-3xl bg-white p-6 shadow-soft">
+        <div class="h-44 rounded-2xl bg-slate-100"></div>
+        <h3 class="mt-5 text-xl font-bold text-slate-900">Another Club</h3>
+        <p class="mt-3 text-slate-600">Use these cards to show club details, activities, and available teams.</p>
+        <button class="mt-5 rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">Explore</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

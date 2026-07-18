@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Clubs | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#eef2ff",
+              100: "#e0e7ff",
+              500: "#6366f1",
+              600: "#4f46e5",
+              700: "#4338ca"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="border-b border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 font-bold text-white">CC</div>
+        <div>
+          <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+          <p class="text-xs text-slate-500">Campus Clubs</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="dashboard.html" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Dashboard</a>
+        <a href="create-club-request.html" class="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">Register New Club</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-6 py-10">
+    <div class="flex flex-col gap-4 rounded-3xl bg-white p-8 shadow-soft lg:flex-row lg:items-center lg:justify-between">
+      <div>
+        <h2 class="text-3xl font-bold text-slate-900">Campus Clubs</h2>
+        <p class="mt-2 max-w-3xl text-slate-500">Verified campus clubs created by admin are shown here for all students. If you want to launch a new student club, send your request with verification materials and admin will create the official club after approval.</p>
+      </div>
+      <div class="rounded-2xl bg-brand-50 px-5 py-4 text-sm text-brand-700">
+        Clubs become visible here only after admin verification and creation.
+      </div>
+    </div>
+
+    <section class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div class="rounded-3xl bg-white p-6 shadow-soft md:col-span-2 xl:col-span-3">
+        <div class="rounded-2xl bg-slate-50 p-6 text-sm text-slate-500">Loading verified clubs...</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

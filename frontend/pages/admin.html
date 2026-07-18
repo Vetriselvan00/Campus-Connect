@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#eef2ff",
+              100: "#e0e7ff",
+              500: "#6366f1",
+              600: "#4f46e5",
+              700: "#4338ca",
+              900: "#1e1b4b"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body data-page="admin" class="bg-slate-50 text-slate-800">
+  <div class="min-h-screen lg:flex">
+    <aside class="w-full border-b border-slate-200 bg-white lg:min-h-screen lg:w-72 lg:border-b-0 lg:border-r">
+      <div class="flex h-full flex-col p-6">
+        <div class="flex items-center gap-3">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 font-bold text-white">CC</div>
+          <div>
+            <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+            <p class="text-xs text-slate-500">Admin Panel</p>
+          </div>
+        </div>
+
+        <nav class="mt-8 space-y-2">
+          <button data-admin-view="overview" class="block w-full rounded-2xl bg-brand-50 px-4 py-3 text-left font-semibold text-brand-700">Overview</button>
+          <button data-admin-view="users" data-notify-key="users" class="block w-full rounded-2xl px-4 py-3 text-left text-slate-600 hover:bg-slate-50 hover:text-brand-600">Users</button>
+          <button data-admin-view="uploads" data-notify-key="uploads" class="block w-full rounded-2xl px-4 py-3 text-left text-slate-600 hover:bg-slate-50 hover:text-brand-600">Uploads</button>
+          <button data-admin-view="items" data-notify-key="items" class="block w-full rounded-2xl px-4 py-3 text-left text-slate-600 hover:bg-slate-50 hover:text-brand-600">Items</button>
+          <button data-admin-view="announcements" data-notify-key="announcements" class="block w-full rounded-2xl px-4 py-3 text-left text-slate-600 hover:bg-slate-50 hover:text-brand-600">Announcements</button>
+          <button data-admin-view="clubs" data-notify-key="clubs" class="block w-full rounded-2xl px-4 py-3 text-left text-slate-600 hover:bg-slate-50 hover:text-brand-600">Clubs</button>
+          <button data-admin-view="sports" data-notify-key="sports" class="block w-full rounded-2xl px-4 py-3 text-left text-slate-600 hover:bg-slate-50 hover:text-brand-600">Sports</button>
+          <a href="chat.html?thread=chat-global" data-notify-key="globalChat" class="block rounded-2xl px-4 py-3 text-left text-slate-600 hover:bg-slate-50 hover:text-brand-600">Global Chat</a>
+        </nav>
+
+      </div>
+    </aside>
+
+    <main class="flex-1 p-6 lg:p-8">
+      <div class="admin-page-header rounded-3xl border border-slate-200 bg-white px-6 py-4 shadow-soft">
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h2 id="adminSectionTitle" class="text-3xl font-bold text-slate-900">Admin Dashboard</h2>
+          <p id="adminSectionSubtitle" class="mt-1 text-slate-500">Control platform activity, moderation, and academic updates.</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="chat.html?mode=direct" data-notify-key="directMessages" title="Direct Messages" aria-label="Direct Messages" class="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-soft hover:border-brand-200">
+            <span class="admin-dm-logo" aria-hidden="true"></span>
+          </a>
+          <a href="chat.html?thread=chat-global" data-notify-key="globalChat" class="relative campus-glow-button rounded-2xl px-5 py-3 text-sm font-semibold text-white">Global Chat</a>
+          <a href="create-update.html" data-notify-key="announcements" class="rounded-2xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-700">New Announcement</a>
+          <button id="adminLogoutButton" type="button" class="rounded-2xl border border-red-200 px-5 py-3 text-sm font-semibold text-red-600 hover:bg-red-50">Logout</button>
+        </div>
+      </div>
+      </div>
+
+      <section data-admin-section="overview">
+        <section class="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          <div class="rounded-3xl bg-white p-6 shadow-soft">
+            <p class="text-sm text-slate-500">Users</p>
+            <h3 class="mt-3 text-3xl font-bold text-slate-900">000</h3>
+          </div>
+          <div class="rounded-3xl bg-white p-6 shadow-soft">
+            <p class="text-sm text-slate-500">Uploads</p>
+            <h3 class="mt-3 text-3xl font-bold text-slate-900">000</h3>
+          </div>
+          <div class="rounded-3xl bg-white p-6 shadow-soft">
+            <p class="text-sm text-slate-500">Listings</p>
+            <h3 class="mt-3 text-3xl font-bold text-slate-900">000</h3>
+          </div>
+          <div class="rounded-3xl bg-white p-6 shadow-soft">
+            <p class="text-sm text-slate-500">Reports</p>
+            <h3 class="mt-3 text-3xl font-bold text-slate-900">000</h3>
+          </div>
+        </section>
+
+        <section class="mt-8 rounded-3xl bg-white p-6 shadow-soft">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-bold text-slate-900">Moderation Panel</h3>
+            <button class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Refresh</button>
+          </div>
+
+          <div class="mt-6 overflow-x-auto">
+            <table class="min-w-full border-separate border-spacing-y-3">
+              <thead>
+                <tr class="text-left text-sm text-slate-500">
+                  <th class="pb-2">Module</th>
+                  <th class="pb-2">Title</th>
+                  <th class="pb-2">Status</th>
+                  <th class="pb-2">Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="mt-8 grid gap-6 xl:grid-cols-2">
+          <div class="rounded-3xl bg-white p-6 shadow-soft">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold text-slate-900">Registered Students</h3>
+              <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">Live from MongoDB</span>
+            </div>
+            <div id="adminUsersList" class="mt-6 space-y-4">
+              <div class="rounded-2xl bg-slate-50 p-4 text-sm text-slate-500">Loading students...</div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white p-6 shadow-soft">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold text-slate-900">Recent Activity</h3>
+              <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">Platform Feed</span>
+            </div>
+            <div id="adminActivityFeed" class="mt-6 space-y-4">
+              <div class="rounded-2xl bg-slate-50 p-4 text-sm text-slate-500">Loading activity...</div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section data-admin-section="users" class="mt-8 hidden rounded-3xl bg-white p-6 shadow-soft">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-slate-900">All Registered Users</h3>
+          <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">Read-only profile view</span>
+        </div>
+        <div class="mt-6 rounded-3xl border border-brand-100 bg-brand-50/50 p-5">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <h4 class="text-lg font-bold text-slate-900">Register Student</h4>
+              <p class="mt-1 text-sm text-slate-500">Admin can create student accounts directly from here.</p>
+            </div>
+            <button id="adminToggleStudentForm" type="button" class="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">New Student</button>
+          </div>
+          <form id="adminStudentForm" class="mt-5 hidden grid gap-4 md:grid-cols-2">
+            <label class="block">
+              <span class="mb-2 block text-sm font-semibold text-slate-700">Full Name</span>
+              <input name="name" type="text" required class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-300" />
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-sm font-semibold text-slate-700">College Email</span>
+              <input name="collegeEmail" type="email" required class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-300" />
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-sm font-semibold text-slate-700">Department</span>
+              <select name="department" required class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-300">
+                <option value="">Select department</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="IT">IT</option>
+                <option value="EEE">EEE</option>
+                <option value="MECH">MECH</option>
+                <option value="CIVIL">CIVIL</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-sm font-semibold text-slate-700">Academic Year</span>
+              <input name="year" type="text" required class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-300" />
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-sm font-semibold text-slate-700">Register Number</span>
+              <input name="registerNumber" type="text" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-300" />
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-sm font-semibold text-slate-700">Phone Number</span>
+              <input name="phone" type="text" required class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-300" />
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-sm font-semibold text-slate-700">Temporary Password</span>
+              <input name="password" type="password" required class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-300" />
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-sm font-semibold text-slate-700">Member Tag</span>
+              <input name="memberTag" type="text" value="Campus Member" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-300" />
+            </label>
+            <label class="block md:col-span-2">
+              <span class="mb-2 block text-sm font-semibold text-slate-700">About</span>
+              <textarea name="about" rows="3" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-300"></textarea>
+            </label>
+            <div class="md:col-span-2 flex flex-wrap gap-3">
+              <button id="adminStudentSubmit" type="submit" class="rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-700">Register Student</button>
+              <button id="adminStudentCancel" type="button" class="rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Cancel</button>
+            </div>
+          </form>
+        </div>
+        <div id="adminUsersSectionList" class="mt-6 space-y-4"></div>
+      </section>
+
+      <section data-admin-section="uploads" class="mt-8 hidden rounded-3xl bg-white p-6 shadow-soft">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-slate-900">Uploads Waiting Or Approved</h3>
+          <span class="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">Notes & Academic Resources</span>
+        </div>
+        <div id="adminUploadsList" class="mt-6 grid gap-4 md:grid-cols-2"></div>
+      </section>
+
+      <section data-admin-section="items" class="mt-8 hidden rounded-3xl bg-white p-6 shadow-soft">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-slate-900">Item Listings</h3>
+          <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">Includes Images</span>
+        </div>
+        <div id="adminItemsList" class="mt-6 grid gap-4 md:grid-cols-2"></div>
+      </section>
+
+      <section data-admin-section="announcements" class="mt-8 hidden rounded-3xl bg-white p-6 shadow-soft">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-slate-900">Announcements</h3>
+          <span class="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">Admin Published Updates</span>
+        </div>
+        <div id="adminAnnouncementsList" class="mt-6 space-y-4"></div>
+      </section>
+
+      <section data-admin-section="clubs" class="mt-8 hidden rounded-3xl bg-white p-6 shadow-soft">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-slate-900">Club Requests</h3>
+          <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">Student Club Registrations</span>
+        </div>
+        <div id="adminClubRequestsList" class="mt-6 grid gap-4 md:grid-cols-2"></div>
+      </section>
+
+      <section data-admin-section="sports" class="mt-8 hidden rounded-3xl bg-white p-6 shadow-soft">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-slate-900">Sports Teams</h3>
+          <span class="rounded-full bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700">Verified Sports Teams</span>
+        </div>
+        <div class="mt-6">
+          <div class="flex items-center justify-between">
+            <h4 class="text-lg font-bold text-slate-900">Sports Requests</h4>
+            <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">Student Sports Registrations</span>
+          </div>
+          <div id="adminSportRequestsList" class="mt-4 grid gap-4 md:grid-cols-2"></div>
+        </div>
+        <div id="adminSportsList" class="mt-6 grid gap-4 md:grid-cols-2"></div>
+      </section>
+
+      <div id="adminProfileModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/40 px-6 py-10">
+        <div class="w-full max-w-3xl rounded-3xl bg-white p-8 shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-500">Student Profile</p>
+              <h3 id="adminProfileName" class="mt-3 text-3xl font-bold text-slate-900">Student Name</h3>
+              <p id="adminProfileEmail" class="mt-2 text-sm text-slate-500">student@student.annauniv.edu</p>
+            </div>
+            <button id="adminProfileClose" type="button" class="rounded-2xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Close</button>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="text-xs uppercase tracking-wide text-slate-400">Register Number</p>
+              <p id="adminProfileRegisterNumber" class="mt-2 font-semibold text-slate-900">Not added</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="text-xs uppercase tracking-wide text-slate-400">Department</p>
+              <p id="adminProfileDepartment" class="mt-2 font-semibold text-slate-900">Not added</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="text-xs uppercase tracking-wide text-slate-400">Academic Year</p>
+              <p id="adminProfileYear" class="mt-2 font-semibold text-slate-900">Not added</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <p class="text-xs uppercase tracking-wide text-slate-400">Phone Number</p>
+              <p id="adminProfilePhone" class="mt-2 font-semibold text-slate-900">Not added</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4 md:col-span-2">
+              <p class="text-xs uppercase tracking-wide text-slate-400">Member Tag</p>
+              <p id="adminProfileMemberTag" class="mt-2 font-semibold text-slate-900">Campus Member</p>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4 md:col-span-2">
+              <p class="text-xs uppercase tracking-wide text-slate-400">About</p>
+              <p id="adminProfileAbout" class="mt-2 leading-7 text-slate-700">No description added.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

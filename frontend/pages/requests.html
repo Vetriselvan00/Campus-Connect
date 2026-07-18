@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Incoming Requests | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#eef2ff",
+              100: "#e0e7ff",
+              500: "#6366f1",
+              600: "#4f46e5",
+              700: "#4338ca"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <div class="min-h-screen">
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div class="flex items-center gap-3">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 font-bold text-white">CC</div>
+          <div>
+            <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+            <p class="text-xs text-slate-500">Incoming Requests</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="profile.html" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Back to Profile</a>
+          <a href="friends.html" title="Friends" aria-label="Friends" class="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 text-xl text-slate-700 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700">👥</a>
+          <div class="relative">
+            <span class="flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-200 bg-brand-50 text-xl text-brand-700">👋</span>
+            <span id="incomingRequestDot" class="absolute right-1.5 top-1.5 hidden h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-white"></span>
+          </div>
+          <button id="dmAdminButton" type="button" title="DM to Admin" aria-label="DM to Admin" class="flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-200 text-xl text-brand-700 hover:bg-brand-50">🛡️</button>
+          <button id="logoutButton" type="button" class="rounded-xl border border-red-200 px-4 py-2 text-sm font-semibold text-red-600 hover:bg-red-50">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-6 py-10">
+      <section class="rounded-3xl bg-white p-8 shadow-soft">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-3xl font-bold text-slate-900">Incoming Requests</h2>
+            <p class="mt-2 text-slate-500">Accept new campus connections from students who want to become your friends.</p>
+          </div>
+          <span id="incomingRequestCount" class="rounded-full bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700">0 pending</span>
+        </div>
+        <div id="incomingRequestsList" class="mt-8 space-y-4">
+          <div class="rounded-2xl bg-slate-50 p-4 text-sm text-slate-500">No incoming requests right now.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

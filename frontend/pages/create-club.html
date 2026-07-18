@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Club | Campus Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#eef2ff",
+              100: "#e0e7ff",
+              500: "#6366f1",
+              600: "#4f46e5",
+              700: "#4338ca"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="border-b border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 font-bold text-white">CC</div>
+        <div>
+          <h1 class="text-lg font-bold text-slate-900">Campus Connect</h1>
+          <p class="text-xs text-slate-500">Admin Club Verification</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="admin.html?view=clubs" class="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-200 hover:text-brand-700">Back to Club Requests</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-6 py-10">
+    <section class="rounded-[2rem] bg-white p-8 shadow-soft">
+      <div id="createClubLayout">
+        <div>
+          <p class="campus-glow-text text-sm text-brand-600">Verified Club Creation</p>
+          <h2 id="createClubPageTitle" class="mt-3 text-4xl font-bold text-slate-900">Create Club</h2>
+          <p id="createClubPageSubtitle" class="mt-3 max-w-2xl text-slate-500">Review the student request and create the official club for all students.</p>
+
+          <form id="createClubForm" class="mt-8 grid gap-5">
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700">Club Name</label>
+              <input name="name" type="text" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500" />
+            </div>
+
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700">Description</label>
+              <textarea name="description" rows="5" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500"></textarea>
+            </div>
+
+            <div class="grid gap-5 md:grid-cols-2">
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Student Access Holder</label>
+                <input name="ownerName" type="text" readonly class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-600" />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Register Number</label>
+                <input name="ownerRegisterNumber" type="text" readonly class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-600" />
+              </div>
+            </div>
+
+            <div class="grid gap-5 md:grid-cols-2">
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Department</label>
+                <input name="ownerDepartment" type="text" readonly class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-600" />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">College Email</label>
+                <input name="ownerCollegeEmail" type="text" readonly class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-600" />
+              </div>
+            </div>
+
+            <div class="grid gap-5 md:grid-cols-2">
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Recruiting</label>
+                <select name="recruiting" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500">
+                  <option value="true">Open to students</option>
+                  <option value="false">Private / Invite only</option>
+                </select>
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-medium text-slate-700">Club Logo URL</label>
+                <input name="logoUrl" type="text" class="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500" />
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <button type="submit" class="rounded-2xl bg-brand-600 px-5 py-3 font-semibold text-white shadow-soft hover:bg-brand-700">Create Club</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
